@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_gasto" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a65bde20-c7a2-44e8-a8b3-8282f3a9ac65">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="cHJfY2FqYSBBUyAsNTAsODMsYzYyNzA4ZDUtNmVlYy00ODliLWFiZWYtNzliMDZlODkzMTAxOw=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT pr_caja.codigo,
+	pr_caja.nombre,
+	pr_caja.fecha_creacion
+FROM pr_caja]]>
+	</queryString>
+	<field name="codigo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="codigo"/>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+	</field>
+	<field name="fecha_creacion" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_creacion"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="51" y="0" width="100" height="30" uuid="1200698c-3fb0-4260-b6f9-48dbff83b153">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf814c7a-ceb8-4ca8-ba1a-3ff5336d18c5"/>
+				</reportElement>
+				<text><![CDATA[codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="0" width="100" height="30" uuid="ff450fca-69d6-427e-a94c-84bb78631a33">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8cd7e869-d3ac-4ad9-99dc-f6e981f633ca"/>
+				</reportElement>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="0" width="100" height="30" uuid="b21f71b4-e181-41bd-ba99-e56d38149c7e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89d1981d-0fb5-4197-99f7-f32c2510f8a1"/>
+				</reportElement>
+				<text><![CDATA[fecha_creacion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="51" y="27" width="100" height="30" uuid="e9cfc5c5-cb86-4f5d-888e-6cf7234c70bc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf814c7a-ceb8-4ca8-ba1a-3ff5336d18c5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="39" width="100" height="30" uuid="22f204eb-f23e-4185-be77-8c157770402f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8cd7e869-d3ac-4ad9-99dc-f6e981f633ca"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="42" width="100" height="30" uuid="86bbc6e5-5c82-4c1b-b72e-76c4d6b6e15e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89d1981d-0fb5-4197-99f7-f32c2510f8a1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{fecha_creacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

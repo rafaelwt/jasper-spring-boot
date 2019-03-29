@@ -1,5 +1,6 @@
 package com.example.demo.resource;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
@@ -85,16 +86,20 @@ public class UsersResource {
 		}
 	 @GetMapping("/reportpdf")
 	 public void reportpdf(HttpServletResponse response) throws Exception {
-			 String url = "jdbc:postgresql://localhost:5432/dbportal";
+			 String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
 			 Properties props = new Properties();
 			 props.setProperty("user","postgres");
 			 props.setProperty("password","123456Zxcv");
 			 Class.forName("org.postgresql.Driver");
 			 Connection conn = DriverManager.getConnection(url, props);
 			 response.setContentType("application/pdf");
-			InputStream inputStream = this.getClass().getResourceAsStream("/reports/rpt.jrxml");
+			InputStream inputStream = this.getClass().getResourceAsStream("/reports/rpt_prueba.jrxml");
 			JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
-			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);
+
+			HashMap params = new HashMap();
+			params.put("title", "Hola mundo");
+			
+			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
 			JRPdfExporter exporter = new JRPdfExporter();
 			 
 			exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
