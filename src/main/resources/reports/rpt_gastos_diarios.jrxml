@@ -39,7 +39,8 @@ g.detalle
 ,g.montobs
 ,g.montous
 ,to_char(g.fechadia,'DD/MM/YYYY') as fechadia
-,g.tipodocumento  
+,g.tipodocumento
+,g.reparto
 from pr_presupuesto_gasto g]]>
 		</queryString>
 		<field name="detalle" class="java.lang.String">
@@ -56,6 +57,9 @@ from pr_presupuesto_gasto g]]>
 		</field>
 		<field name="tipodocumento" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.label" value="tipodocumento"/>
+		</field>
+		<field name="reparto" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="reparto"/>
 		</field>
 		<variable name="total_bs" class="java.math.BigDecimal" calculation="Sum">
 			<variableExpression><![CDATA[$F{montobs}]]></variableExpression>
