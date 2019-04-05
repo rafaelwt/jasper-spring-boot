@@ -123,5 +123,16 @@ public class UsersResource {
 		}
 
 
+		@RequestMapping("/test")
+    public Object hellow() 
+    {
+
+			HashMap<String, Object> map = new HashMap<>();
+			map.put("status", "ok");
+			map.put("message", "Hello wordl");
+			return map;
+    }
+
+
 	
 }
