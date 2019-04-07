@@ -101,7 +101,6 @@ public class UsersResource {
 			
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
 			JRPdfExporter exporter = new JRPdfExporter();
-			 
 			exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
 			// exporter.setExporterOutput(new SimpleOutputStreamExporterOutput("userReport.pdf")); //genera un pdf en la ruta raiz
 			exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(response.getOutputStream())); 
