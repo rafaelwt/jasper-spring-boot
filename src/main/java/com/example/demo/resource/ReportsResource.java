@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.InputStream;
@@ -73,7 +74,8 @@ public class ReportsResource {
 			exporter.exportReport();
         }
         @GetMapping("/presupuestoasignado")
-        public void presupuestoasignado(HttpServletResponse response) throws Exception {
+        public void presupuestoasignado(HttpServletResponse response, @RequestParam Integer cod_mes, @RequestParam Integer cod_area,@RequestParam Integer cod_subarea) throws Exception {
+                
                 String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
                 Properties props = new Properties();
                 props.setProperty("user","postgres");
@@ -84,11 +86,12 @@ public class ReportsResource {
                InputStream inputStream = this.getClass().getResourceAsStream("/reports/rpt_presupuesto_segun_asignado.jrxml");
                JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
    
-               // HashMap params = new HashMap();
-               // params.put("title", "Hola mundo");
-               
-               // JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
-               JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);
+                HashMap params = new HashMap();
+                params.put("cod_mes", cod_mes);
+                params.put("cod_area", cod_area);
+                params.put("cod_subarea", cod_subarea);
+              JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
+               // JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);
                JRPdfExporter exporter = new JRPdfExporter();
                 
                exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
