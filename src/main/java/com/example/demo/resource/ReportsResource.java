@@ -114,4 +114,46 @@ public class ReportsResource {
                 
                exporter.exportReport();
            }
+
+
+           @GetMapping("/presupuestoaprobado")
+           public void presupuestoaprobado(HttpServletResponse response, @RequestParam Integer cod_mes, @RequestParam Integer cod_area,@RequestParam Integer cod_subarea) throws Exception {
+                   
+                   String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
+                   Properties props = new Properties();
+                   props.setProperty("user","postgres");
+                   props.setProperty("password","123456Zxcv");
+                   Class.forName("org.postgresql.Driver");
+                   Connection conn = DriverManager.getConnection(url, props);
+                   response.setContentType("application/pdf");
+                  InputStream inputStream = this.getClass().getResourceAsStream("/reports/rpt_presupuesto_segun_aprobado.jrxml");
+                  JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
+      
+                   HashMap params = new HashMap();
+                   params.put("cod_mes", cod_mes);
+                   params.put("cod_area", cod_area);
+                   params.put("cod_subarea", cod_subarea);
+                 JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
+                  // JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);
+                  JRPdfExporter exporter = new JRPdfExporter();
+                   
+                  exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
+                  // exporter.setExporterOutput(new SimpleOutputStreamExporterOutput("userReport.pdf")); //genera un pdf en la ruta raiz
+                  exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(response.getOutputStream())); 
+                  SimplePdfReportConfiguration reportConfig
+                    = new SimplePdfReportConfiguration();
+                  reportConfig.setSizePageToContent(true);
+                  reportConfig.setForceLineBreakPolicy(false);
+                   
+                  SimplePdfExporterConfiguration exportConfig
+                    = new SimplePdfExporterConfiguration();
+                  exportConfig.setMetadataAuthor("baeldung");
+                  exportConfig.setEncrypted(true);
+                  exportConfig.setAllowedPermissionsHint("PRINTING");
+                   
+                  exporter.setConfiguration(reportConfig);
+                  exporter.setConfiguration(exportConfig);
+                   
+                  exporter.exportReport();
+              }
 }
