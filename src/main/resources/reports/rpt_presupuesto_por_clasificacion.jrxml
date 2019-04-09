@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_presupuesto_x_clasificacion" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8ed244d-7658-45ef-8fb3-af4df9124c0d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="cod_mes" class="java.lang.Integer"/>
+	<parameter name="cod_clasificacion" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select * from rpt_presupuesto_por_clasificacion($P{cod_mes},$P{cod_clasificacion})]]>
+	</queryString>
+	<field name="mes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mes"/>
+	</field>
+	<field name="clasificacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="clasificacion"/>
+	</field>
+	<field name="area" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="area"/>
+	</field>
+	<field name="asignado" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="asignado"/>
+	</field>
+	<field name="ejecutado" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ejecutado"/>
+	</field>
+	<field name="saldo" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="saldo"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="0" width="470" height="30" uuid="deff58a3-8279-4535-ad8d-696537a60cf3"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Ejecucion Presupuestaria por clasificacion]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="88" splitType="Stretch">
+			<rectangle>
+				<reportElement x="10" y="0" width="560" height="67" uuid="06c98e71-5125-4070-b52b-d7c62f8dbac2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="16" y="6" width="188" height="20" uuid="b56ed99a-8147-4d5e-b8f0-34916966ec10"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PARÁMETROS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="30" width="70" height="15" uuid="759a7cc7-43c4-40ce-92e4-24cdb39ce72f"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mes:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="50" width="70" height="15" uuid="5e42152e-98f3-45df-bb20-af1dd6e43c76"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clasificacion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="31" width="120" height="14" uuid="e246021b-da37-4281-9a72-d2d84d93e3da"/>
+				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="50" width="120" height="14" uuid="c7032454-28bf-4f9f-9068-f3edee706a74"/>
+				<textFieldExpression><![CDATA[$F{clasificacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="100" height="20" uuid="5b15dd9e-6661-40b7-b2eb-daba1ede2fd7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f8ab946-d6f4-4ca1-a38c-8adcea481232"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clasificacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="100" height="20" uuid="37a3c5bc-219b-459e-9ebe-c4b68743bc6e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c90216d2-43fe-49d5-bee8-19a9bbb147b8"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Area]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="0" width="100" height="20" uuid="1eac5432-ce93-42c3-9a53-a0262da862a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7dccd9af-79a8-487e-917e-189b258e8726"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asignado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="100" height="20" uuid="254cf1fa-a4bf-4636-8093-aee598b1558e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df3749cf-3ace-4c6c-a57f-afa1383df096"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ejecutado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="100" height="20" uuid="cf864d22-e14d-47c2-b2b6-ca1a0b6e8177">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4022869d-8c00-4b0b-a563-70086444144c"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saldo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="100" height="14" uuid="d4f48668-5b62-4606-8767-52ef8919197a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f8ab946-d6f4-4ca1-a38c-8adcea481232"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{clasificacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="100" height="14" uuid="b7dcb45c-ad88-42df-bd58-e359ce1c4908">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c90216d2-43fe-49d5-bee8-19a9bbb147b8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{area}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="100" height="14" uuid="79c1e6a5-6ab9-4b2d-8caf-5465b2852a13">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7dccd9af-79a8-487e-917e-189b258e8726"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{asignado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="100" height="14" uuid="d0b69b4a-290f-47f3-aaf7-88f2f5bafb6f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df3749cf-3ace-4c6c-a57f-afa1383df096"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ejecutado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="100" height="14" uuid="58852310-3eb4-4776-ba76-bd7eacaee849">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4022869d-8c00-4b0b-a563-70086444144c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{saldo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="10" y="15" width="541" height="5" uuid="064f3bcd-963c-48e1-aeb8-f9e830c9928f"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
