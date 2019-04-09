@@ -26,6 +26,15 @@
 	<field name="saldo" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="saldo"/>
 	</field>
+	<variable name="total_asigando" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{asignado}]]></variableExpression>
+	</variable>
+	<variable name="tota_ejecutado" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ejecutado}]]></variableExpression>
+	</variable>
+	<variable name="total_saldo" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$F{saldo}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -158,17 +167,40 @@
 				<textFieldExpression><![CDATA[$F{saldo}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="10" y="15" width="541" height="5" uuid="064f3bcd-963c-48e1-aeb8-f9e830c9928f"/>
+				<reportElement x="10" y="14" width="551" height="1" uuid="064f3bcd-963c-48e1-aeb8-f9e830c9928f"/>
 			</line>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="230" y="0" width="100" height="14" uuid="c20a79a9-e309-45cc-b59b-2a547b2756a1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_asigando}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="110" y="0" width="110" height="14" uuid="6b3ef56f-e95a-4ac1-9480-9157ece8c5df"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="340" y="0" width="100" height="14" uuid="4595f9c9-1eaf-42d7-a22d-6a571fabe983"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{tota_ejecutado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="100" height="14" uuid="743ed349-c914-4892-8240-af04f78c846b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_saldo}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
