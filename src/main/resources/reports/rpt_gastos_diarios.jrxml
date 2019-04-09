@@ -33,6 +33,8 @@
 	<subDataset name="DatasetGastos" uuid="ed1bc80d-8c59-41a4-bba0-35dee1e632d3">
 		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
+		<parameter name="fec_ini" class="java.lang.String"/>
+		<parameter name="fe_fin" class="java.lang.String"/>
 		<queryString language="SQL">
 			<![CDATA[select 
 g.detalle
@@ -68,14 +70,10 @@ from pr_presupuesto_gasto g]]>
 			<variableExpression><![CDATA[$F{montous}]]></variableExpression>
 		</variable>
 	</subDataset>
+	<parameter name="fec_ini" class="java.lang.String"/>
+	<parameter name="fec_fin" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[select 
-g.detalle
-,g.montobs
-,g.montous
-,g.fechadia
-,g.tipodocumento  
-from pr_presupuesto_gasto g]]>
+		<![CDATA[  select * from rpt_gastos_diarios ($P{fec_ini},$P{fec_fin})]]>
 	</queryString>
 	<field name="detalle" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="detalle"/>
@@ -91,6 +89,9 @@ from pr_presupuesto_gasto g]]>
 	</field>
 	<field name="tipodocumento" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="tipodocumento"/>
+	</field>
+	<field name="reparto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="reparto"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -138,7 +139,7 @@ from pr_presupuesto_gasto g]]>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="210" y="4" width="70" height="16" uuid="93b0ec6c-111d-43b0-bfcd-727ca3e98a7a"/>
+				<reportElement x="200" y="4" width="80" height="16" uuid="93b0ec6c-111d-43b0-bfcd-727ca3e98a7a"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
@@ -152,7 +153,7 @@ from pr_presupuesto_gasto g]]>
 				<text><![CDATA[USD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="350" y="3" width="100" height="16" uuid="0d4c4e91-aaea-4810-ad9d-6b695dc4fe78"/>
+				<reportElement x="340" y="3" width="80" height="16" uuid="0d4c4e91-aaea-4810-ad9d-6b695dc4fe78"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
@@ -160,18 +161,25 @@ from pr_presupuesto_gasto g]]>
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="450" y="4" width="120" height="16" uuid="f5652ed2-9077-4a03-bbd7-45ac074d15fe"/>
+				<reportElement x="420" y="4" width="90" height="16" uuid="f5652ed2-9077-4a03-bbd7-45ac074d15fe"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[DOCUMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="3" width="61" height="16" uuid="5bff81bf-d540-4ec2-a769-5c9ae55a0f53"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPARTO]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="16" splitType="Stretch">
 			<componentElement>
-				<reportElement x="0" y="0" width="570" height="15" uuid="2164c5ba-5f52-4f5e-8d01-4dfb7432c855">
+				<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="570" height="15" uuid="2164c5ba-5f52-4f5e-8d01-4dfb7432c855">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
@@ -179,7 +187,13 @@ from pr_presupuesto_gasto g]]>
 					<printWhenExpression><![CDATA[$V{REPORT_COUNT} == 1]]></printWhenExpression>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="DatasetGastos" uuid="17b3dda1-e080-403c-a83c-1b0868ae540f">
+					<datasetRun subDataset="DatasetGastos" uuid="ff7c1e1a-cc1d-4bb1-b5dd-152e2cfa3280">
+						<datasetParameter name="fec_ini">
+							<datasetParameterExpression><![CDATA[$P{fec_ini}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="fe_fin">
+							<datasetParameterExpression><![CDATA[$P{fec_fin}]]></datasetParameterExpression>
+						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column width="40" uuid="83ee345e-c7ca-41a2-a0b0-5003fca57836">
@@ -193,11 +207,11 @@ from pr_presupuesto_gasto g]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="170" uuid="e29f532e-d6d8-4dc9-afff-33716c3ed690">
+					<jr:column width="160" uuid="e29f532e-d6d8-4dc9-afff-33716c3ed690">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
 						<jr:columnFooter style="Table_CH" height="15" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="170" height="15" uuid="3e313ad0-df22-4dd5-8442-aa4d1be4bc54"/>
+								<reportElement x="0" y="0" width="160" height="15" uuid="3e313ad0-df22-4dd5-8442-aa4d1be4bc54"/>
 								<textElement textAlignment="Right">
 									<font isBold="true"/>
 								</textElement>
@@ -206,7 +220,7 @@ from pr_presupuesto_gasto g]]>
 						</jr:columnFooter>
 						<jr:detailCell style="Table_TD" height="15">
 							<textField>
-								<reportElement x="0" y="0" width="170" height="15" uuid="1b197dd2-b545-46ca-a91c-2dffcf733b2a"/>
+								<reportElement x="0" y="0" width="160" height="15" uuid="1b197dd2-b545-46ca-a91c-2dffcf733b2a"/>
 								<textFieldExpression><![CDATA[$F{detalle}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -255,12 +269,12 @@ from pr_presupuesto_gasto g]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="100" uuid="d4d5540c-fb81-4936-8993-e701a6a32afb">
+					<jr:column width="80" uuid="d4d5540c-fb81-4936-8993-e701a6a32afb">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
 						<jr:columnFooter style="Table_CH" height="15" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="15">
 							<textField>
-								<reportElement x="0" y="0" width="100" height="15" uuid="13a9de63-fc21-4a98-b0ac-786de97743f7"/>
+								<reportElement x="0" y="0" width="80" height="15" uuid="13a9de63-fc21-4a98-b0ac-786de97743f7"/>
 								<textElement textAlignment="Right">
 									<paragraph rightIndent="2"/>
 								</textElement>
@@ -268,13 +282,23 @@ from pr_presupuesto_gasto g]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="120" uuid="4b1d0440-e5f4-4020-84e7-616aee115867">
+					<jr:column width="90" uuid="4b1d0440-e5f4-4020-84e7-616aee115867">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
 						<jr:columnFooter style="Table_CH" height="15" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="15">
 							<textField>
-								<reportElement x="0" y="0" width="120" height="15" uuid="c1bdc809-56a8-4646-b069-c17f418ceadc"/>
+								<reportElement x="0" y="0" width="90" height="15" uuid="c1bdc809-56a8-4646-b069-c17f418ceadc"/>
 								<textFieldExpression><![CDATA[$F{tipodocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="7fea4008-0ec1-4398-8446-64064027a0c2">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column7"/>
+						<jr:columnFooter style="Table_CH" height="15" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="15">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="15" uuid="63fa58b1-c454-4550-8471-07e21f3359f5"/>
+								<textFieldExpression><![CDATA[$F{reparto}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

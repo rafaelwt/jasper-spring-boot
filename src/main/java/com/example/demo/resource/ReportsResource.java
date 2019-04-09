@@ -36,7 +36,7 @@ public class ReportsResource {
 	}
 
 	 @GetMapping("/gastosdiarios")
-	 public void gastosdiarios(HttpServletResponse response) throws Exception {
+	 public void gastosdiarios(HttpServletResponse response, @RequestParam String fechaini, @RequestParam String fechafin) throws Exception {
 			 String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
 			 Properties props = new Properties();
 			 props.setProperty("user","postgres");
@@ -47,11 +47,12 @@ public class ReportsResource {
 			InputStream inputStream = this.getClass().getResourceAsStream("/reports/rpt_gastos_diarios.jrxml");
 			JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
 
-			// HashMap params = new HashMap();
-			// params.put("title", "Hola mundo");
+			 HashMap params = new HashMap();
+       params.put("fec_ini", fechaini);
+       params.put("fec_fin", fechafin);
 			
-            // JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);
+       JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
+      // JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);
 			JRPdfExporter exporter = new JRPdfExporter();
 			 
 			exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
