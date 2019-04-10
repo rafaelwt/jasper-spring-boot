@@ -73,7 +73,7 @@ from pr_presupuesto_gasto g]]>
 	<parameter name="fec_ini" class="java.lang.String"/>
 	<parameter name="fec_fin" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[  select * from rpt_gastos_diarios ($P{fec_ini},$P{fec_fin})]]>
+		<![CDATA[select * from rpt_gastos_diarios ($P{fec_ini},$P{fec_fin})]]>
 	</queryString>
 	<field name="detalle" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="detalle"/>
@@ -200,7 +200,7 @@ from pr_presupuesto_gasto g]]>
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
 						<jr:columnFooter style="Table_CH" height="15" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="15">
-							<textField>
+							<textField isStretchWithOverflow="true">
 								<reportElement x="0" y="0" width="40" height="15" uuid="c25ae02c-aea6-4a51-ae72-cd5b230c15ed"/>
 								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
@@ -219,7 +219,7 @@ from pr_presupuesto_gasto g]]>
 							</textField>
 						</jr:columnFooter>
 						<jr:detailCell style="Table_TD" height="15">
-							<textField>
+							<textField isStretchWithOverflow="true">
 								<reportElement x="0" y="0" width="160" height="15" uuid="1b197dd2-b545-46ca-a91c-2dffcf733b2a"/>
 								<textFieldExpression><![CDATA[$F{detalle}]]></textFieldExpression>
 							</textField>
@@ -238,7 +238,7 @@ from pr_presupuesto_gasto g]]>
 							</textField>
 						</jr:columnFooter>
 						<jr:detailCell style="Table_TD" height="15">
-							<textField>
+							<textField isStretchWithOverflow="true">
 								<reportElement x="0" y="0" width="70" height="15" uuid="a9016848-6f51-4204-9970-5e254b0cba88"/>
 								<textElement textAlignment="Right">
 									<paragraph rightIndent="2"/>
@@ -260,7 +260,7 @@ from pr_presupuesto_gasto g]]>
 							</textField>
 						</jr:columnFooter>
 						<jr:detailCell style="Table_TD" height="15">
-							<textField>
+							<textField isStretchWithOverflow="true">
 								<reportElement x="0" y="0" width="70" height="15" uuid="b61a2ab9-88b4-4b9b-8608-237c74ae485a"/>
 								<textElement textAlignment="Right">
 									<paragraph rightIndent="2"/>
@@ -273,7 +273,7 @@ from pr_presupuesto_gasto g]]>
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
 						<jr:columnFooter style="Table_CH" height="15" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="15">
-							<textField>
+							<textField isStretchWithOverflow="true">
 								<reportElement x="0" y="0" width="80" height="15" uuid="13a9de63-fc21-4a98-b0ac-786de97743f7"/>
 								<textElement textAlignment="Right">
 									<paragraph rightIndent="2"/>
@@ -286,7 +286,7 @@ from pr_presupuesto_gasto g]]>
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
 						<jr:columnFooter style="Table_CH" height="15" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="15">
-							<textField>
+							<textField isStretchWithOverflow="true">
 								<reportElement x="0" y="0" width="90" height="15" uuid="c1bdc809-56a8-4646-b069-c17f418ceadc"/>
 								<textFieldExpression><![CDATA[$F{tipodocumento}]]></textFieldExpression>
 							</textField>
@@ -296,7 +296,7 @@ from pr_presupuesto_gasto g]]>
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column7"/>
 						<jr:columnFooter style="Table_CH" height="15" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="15">
-							<textField>
+							<textField isStretchWithOverflow="true">
 								<reportElement x="0" y="0" width="60" height="15" uuid="63fa58b1-c454-4550-8471-07e21f3359f5"/>
 								<textFieldExpression><![CDATA[$F{reparto}]]></textFieldExpression>
 							</textField>
