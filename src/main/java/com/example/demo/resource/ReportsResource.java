@@ -36,7 +36,7 @@ public class ReportsResource {
 	}
 
 	 @GetMapping("/gastosdiarios")
-	 public void gastosdiarios(HttpServletResponse response, @RequestParam String fechaini, @RequestParam String fechafin) throws Exception {
+	 public void gastosdiarios(HttpServletResponse response, @RequestParam String fechaini, @RequestParam String fechafin, @RequestParam String cod_caja) throws Exception {
 			 String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
 			 Properties props = new Properties();
 			 props.setProperty("user","postgres");
