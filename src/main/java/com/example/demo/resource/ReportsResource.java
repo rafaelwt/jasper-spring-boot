@@ -50,6 +50,7 @@ public class ReportsResource {
 			 HashMap params = new HashMap();
        params.put("fec_ini", fechaini);
        params.put("fec_fin", fechafin);
+       params.put("cod_caja", cod_caja);
 			
        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
       // JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);

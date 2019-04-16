@@ -35,15 +35,9 @@
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
 		<parameter name="fec_ini" class="java.lang.String"/>
 		<parameter name="fe_fin" class="java.lang.String"/>
+		<parameter name="cod_caja" class="java.lang.String"/>
 		<queryString language="SQL">
-			<![CDATA[select 
-g.detalle
-,g.montobs
-,g.montous
-,to_char(g.fechadia,'DD/MM/YYYY') as fechadia
-,g.tipodocumento
-,g.reparto
-from pr_presupuesto_gasto g]]>
+			<![CDATA[select * from rpt_gastos_diarios($P{fec_ini},$P{fe_fin},$P{cod_caja})]]>
 		</queryString>
 		<field name="detalle" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.label" value="detalle"/>
@@ -72,8 +66,9 @@ from pr_presupuesto_gasto g]]>
 	</subDataset>
 	<parameter name="fec_ini" class="java.lang.String"/>
 	<parameter name="fec_fin" class="java.lang.String"/>
+	<parameter name="cod_caja" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[select * from rpt_gastos_diarios ($P{fec_ini},$P{fec_fin})]]>
+		<![CDATA[select * from rpt_gastos_diarios('01-01-2019','02-02-2019',$P{cod_caja})]]>
 	</queryString>
 	<field name="detalle" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="detalle"/>
@@ -84,7 +79,7 @@ from pr_presupuesto_gasto g]]>
 	<field name="montous" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="montous"/>
 	</field>
-	<field name="fechadia" class="java.sql.Date">
+	<field name="fechadia" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="fechadia"/>
 	</field>
 	<field name="tipodocumento" class="java.lang.String">
@@ -187,12 +182,15 @@ from pr_presupuesto_gasto g]]>
 					<printWhenExpression><![CDATA[$V{REPORT_COUNT} == 1]]></printWhenExpression>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="DatasetGastos" uuid="ff7c1e1a-cc1d-4bb1-b5dd-152e2cfa3280">
+					<datasetRun subDataset="DatasetGastos" uuid="5aa7195f-fdec-4886-b5bf-4262ed0d8ae0">
 						<datasetParameter name="fec_ini">
 							<datasetParameterExpression><![CDATA[$P{fec_ini}]]></datasetParameterExpression>
 						</datasetParameter>
 						<datasetParameter name="fe_fin">
 							<datasetParameterExpression><![CDATA[$P{fec_fin}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="cod_caja">
+							<datasetParameterExpression><![CDATA[$P{cod_caja}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
