@@ -118,7 +118,7 @@
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Asignado]]></text>
+				<text><![CDATA[Inicial]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="425" y="0" width="60" height="20" uuid="254cf1fa-a4bf-4636-8093-aee598b1558e">

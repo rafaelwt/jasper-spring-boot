@@ -201,7 +201,7 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Asignado]]></text>
+					<text><![CDATA[Inicial]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="612" y="4" width="60" height="20" uuid="c23a6e32-44db-4cd1-868b-dfa620df0663">
@@ -258,7 +258,7 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 				<textElement textAlignment="Center">
 					<font size="20"/>
 				</textElement>
-				<text><![CDATA[Ejecucion Presupuestaria Según lo Asignado]]></text>
+				<text><![CDATA[Ejecucion Presupuestaria Según lo Inicial]]></text>
 			</staticText>
 		</band>
 	</title>
