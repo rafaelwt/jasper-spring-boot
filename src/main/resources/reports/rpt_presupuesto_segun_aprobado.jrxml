@@ -332,113 +332,116 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 		</band>
 	</title>
 	<detail>
-		<band height="33" splitType="Stretch">
+		<band height="37" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="3" width="74" height="27" uuid="b6f7b39d-f049-4cd6-b902-6dd067fcf39b">
+				<reportElement x="0" y="3" width="74" height="30" uuid="b6f7b39d-f049-4cd6-b902-6dd067fcf39b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db67c637-b151-43ec-a5dc-c7cd1a19f100"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{cod_actividad}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="82" y="3" width="128" height="27" uuid="ccfa852e-2e34-46ae-afbf-d74d44f658e6">
+				<reportElement x="82" y="3" width="128" height="30" uuid="ccfa852e-2e34-46ae-afbf-d74d44f658e6">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aba0f973-51d4-4950-82ed-a3269b05c3d3"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{actividad}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="219" y="3" width="110" height="27" uuid="b58f52c9-711d-4184-9d4d-a16497ba100a">
+				<reportElement x="219" y="3" width="110" height="30" uuid="b58f52c9-711d-4184-9d4d-a16497ba100a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aba0f973-51d4-4950-82ed-a3269b05c3d3"/>
 				</reportElement>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="0.1"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{clasificacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="334" y="3" width="123" height="27" uuid="cc47fa50-58b3-4aec-b5a0-17df5d170c9f">
+				<reportElement x="334" y="3" width="123" height="30" uuid="cc47fa50-58b3-4aec-b5a0-17df5d170c9f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aba0f973-51d4-4950-82ed-a3269b05c3d3"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{responsable}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="462" y="3" width="60" height="27" uuid="80c6748d-6bd4-447c-8ca8-e2f6d0da4453">
+				<reportElement x="462" y="3" width="60" height="30" uuid="80c6748d-6bd4-447c-8ca8-e2f6d0da4453">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db67c637-b151-43ec-a5dc-c7cd1a19f100"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{asigando}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="623" y="3" width="60" height="27" uuid="c8b940b4-4c94-4b77-a610-9030c020f709">
+				<reportElement x="623" y="3" width="60" height="30" uuid="c8b940b4-4c94-4b77-a610-9030c020f709">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db67c637-b151-43ec-a5dc-c7cd1a19f100"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{ejecutado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="688" y="3" width="60" height="27" uuid="7711f6c2-9b67-4aac-8d38-4005f1920364">
+				<reportElement x="688" y="3" width="60" height="30" uuid="7711f6c2-9b67-4aac-8d38-4005f1920364">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db67c637-b151-43ec-a5dc-c7cd1a19f100"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{saldo}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="0" width="1" height="33" uuid="9001dd4a-ea92-47c6-8735-2d1cfde08d3b"/>
+				<reportElement x="0" y="0" width="1" height="37" uuid="9001dd4a-ea92-47c6-8735-2d1cfde08d3b"/>
 			</line>
 			<line>
-				<reportElement x="751" y="0" width="1" height="33" uuid="cf2becb5-9555-45fc-9f69-46cebcb738e1"/>
+				<reportElement x="751" y="0" width="1" height="37" uuid="cf2becb5-9555-45fc-9f69-46cebcb738e1"/>
 			</line>
 			<line>
-				<reportElement x="80" y="-4" width="1" height="36" uuid="4b109097-99dc-48c7-aaae-d41391392da6"/>
+				<reportElement x="80" y="-4" width="1" height="40" uuid="4b109097-99dc-48c7-aaae-d41391392da6"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="213" y="-24" width="1" height="56" uuid="8d0944c2-acd2-4eb9-a67d-8c80152786b9"/>
+				<reportElement x="213" y="-24" width="1" height="60" uuid="8d0944c2-acd2-4eb9-a67d-8c80152786b9"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="332" y="-24" width="1" height="56" uuid="2f24c340-5ac1-403a-b230-ff78511423e1"/>
+				<reportElement x="332" y="-24" width="1" height="60" uuid="2f24c340-5ac1-403a-b230-ff78511423e1"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="460" y="-24" width="1" height="56" uuid="88a8e3bd-dec2-428c-b999-e0a38a0c8a27"/>
+				<reportElement x="460" y="-24" width="1" height="60" uuid="88a8e3bd-dec2-428c-b999-e0a38a0c8a27"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="620" y="-24" width="1" height="56" uuid="9e7516aa-5e33-4de8-a355-67e4202a40b8"/>
+				<reportElement x="620" y="-24" width="1" height="60" uuid="9e7516aa-5e33-4de8-a355-67e4202a40b8"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="685" y="-24" width="1" height="56" uuid="c6daf8c7-6794-474b-a104-862419c06642"/>
+				<reportElement x="685" y="-24" width="1" height="60" uuid="c6daf8c7-6794-474b-a104-862419c06642"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="526" y="-23" width="1" height="56" uuid="a1dbba83-37be-416f-b3eb-a7056680ffe9"/>
+				<reportElement x="526" y="-23" width="1" height="60" uuid="a1dbba83-37be-416f-b3eb-a7056680ffe9"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="529" y="3" width="90" height="27" uuid="714197ee-23fa-4958-a6da-12cee3711490">
+				<reportElement x="529" y="3" width="90" height="30" uuid="714197ee-23fa-4958-a6da-12cee3711490">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db67c637-b151-43ec-a5dc-c7cd1a19f100"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{aprobado}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="1" y="32" width="750" height="1" uuid="c91c1b06-ca2f-44fe-b15b-6f2ada8c9cf7"/>
+				<reportElement x="1" y="36" width="750" height="1" uuid="c91c1b06-ca2f-44fe-b15b-6f2ada8c9cf7"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
