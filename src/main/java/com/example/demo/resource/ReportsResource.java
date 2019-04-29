@@ -40,7 +40,7 @@ public class ReportsResource {
 
   @GetMapping("/gastosdiarios")
   public void gastosdiarios(HttpServletResponse response, @RequestParam String fechaini, @RequestParam String fechafin,
-      @RequestParam String cod_caja) throws Exception {
+      @RequestParam Integer cod_caja) throws Exception {
     try {
       String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
       Properties props = new Properties();
@@ -82,7 +82,7 @@ public class ReportsResource {
 
       exporter.exportReport();
     } catch (Exception exc) {
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error al generar el reportte", null);
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error al generar el reporte", null);
     }
 
   }
@@ -129,7 +129,7 @@ public class ReportsResource {
 
       exporter.exportReport();
     } catch (Exception exc) {
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error al generar el reportte", null);
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error al generar el reporte", null);
     }
 
   }
@@ -176,7 +176,7 @@ public class ReportsResource {
 
       exporter.exportReport();
     } catch (Exception exc) {
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error al generar el reportte", null);
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error al generar el reporte", null);
     }
 
   }
@@ -223,7 +223,7 @@ public class ReportsResource {
 
       exporter.exportReport();
     } catch (Exception exc) {
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error al generar el reportte", null);
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error al generar el reporte", null);
     }
   }
 }
