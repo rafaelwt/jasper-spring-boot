@@ -7,6 +7,7 @@ import java.util.Properties;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,20 +33,24 @@ import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import net.sf.jasperreports.export.SimplePdfReportConfiguration;
 
+
 @RestController
 @RequestMapping("/rest/reports")
 public class ReportsResource {
   public ReportsResource() {
   }
 
+  @CrossOrigin
   @GetMapping("/gastosdiarios")
   public void gastosdiarios(HttpServletResponse response, @RequestParam String fechaini, @RequestParam String fechafin,
       @RequestParam Integer cod_caja) throws Exception {
     try {
-      String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
+      String url = "jdbc:postgresql://localhost:5432/db_presupuesto";
+      // String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
       Properties props = new Properties();
       props.setProperty("user", "postgres");
-      props.setProperty("password", "123456Zxcv");
+      props.setProperty("password", "Sistemas1");
+      // props.setProperty("password", "123456Zxcv");
       Class.forName("org.postgresql.Driver");
       Connection conn = DriverManager.getConnection(url, props);
       response.setContentType("application/pdf");
@@ -87,14 +92,17 @@ public class ReportsResource {
 
   }
 
+  @CrossOrigin
   @GetMapping("/presupuestoasignado")
   public void presupuestoasignado(HttpServletResponse response, @RequestParam Integer cod_mes,
       @RequestParam Integer cod_area, @RequestParam Integer cod_subarea) throws Exception {
     try {
-      String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
+      String url = "jdbc:postgresql://localhost:5432/db_presupuesto";
+      // String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
       Properties props = new Properties();
       props.setProperty("user", "postgres");
-      props.setProperty("password", "123456Zxcv");
+      props.setProperty("password", "Sistemas1");
+      // props.setProperty("password", "123456Zxcv");
       Class.forName("org.postgresql.Driver");
       Connection conn = DriverManager.getConnection(url, props);
       response.setContentType("application/pdf");
@@ -134,14 +142,17 @@ public class ReportsResource {
 
   }
 
+  @CrossOrigin
   @GetMapping("/presupuestoaprobado")
   public void presupuestoaprobado(HttpServletResponse response, @RequestParam Integer cod_mes,
       @RequestParam Integer cod_area, @RequestParam Integer cod_subarea) throws Exception {
     try {
-      String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
+      String url = "jdbc:postgresql://localhost:5432/db_presupuesto";
+      // String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
       Properties props = new Properties();
       props.setProperty("user", "postgres");
-      props.setProperty("password", "123456Zxcv");
+      props.setProperty("password", "Sistemas1");
+      // props.setProperty("password", "123456Zxcv");
       Class.forName("org.postgresql.Driver");
       Connection conn = DriverManager.getConnection(url, props);
       response.setContentType("application/pdf");
@@ -181,14 +192,17 @@ public class ReportsResource {
 
   }
 
+  @CrossOrigin
   @GetMapping("/presupuestoclasificacion")
   public void presupuestoclasificacion(HttpServletResponse response, @RequestParam Integer cod_mes,
       @RequestParam Integer cod_clasificacion) throws Exception {
     try {
-      String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
+      String url = "jdbc:postgresql://localhost:5432/db_presupuesto";
+      // String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
       Properties props = new Properties();
       props.setProperty("user", "postgres");
-      props.setProperty("password", "123456Zxcv");
+      props.setProperty("password", "Sistemas1");
+      // props.setProperty("password", "123456Zxcv");
       Class.forName("org.postgresql.Driver");
       Connection conn = DriverManager.getConnection(url, props);
       response.setContentType("application/pdf");
