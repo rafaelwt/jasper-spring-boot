@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_gastos_diarios" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c90b620d-371d-4174-88bc-9352aa215f2b">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
@@ -74,6 +74,12 @@
 		<property name="com.jaspersoft.studio.field.label" value="nom_usuario"/>
 	</field>
 	<variable name="nombreCaja" class="java.lang.String"/>
+	<variable name="sumaMontoBs" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{montobs}]]></variableExpression>
+	</variable>
+	<variable name="sumaMontoUsd" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{montous}]]></variableExpression>
+	</variable>
 	<group name="nom_caja">
 		<groupExpression><![CDATA[$F{nom_caja}]]></groupExpression>
 		<groupHeader>
@@ -207,11 +213,52 @@
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="32">
+			<band height="70">
 				<line>
 					<reportElement x="1" y="-1" width="571" height="1" uuid="c3b65e5f-6c7e-4fbb-85bf-09d3fff4df95"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Solid"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="196" y="-1" width="1" height="21" uuid="e1d69afd-d942-4661-9346-998871eba5fc"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="340" y="-1" width="1" height="21" uuid="ccc2310a-59f0-4053-b661-75f0786bfe2a"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="196" y="20" width="145" height="1" uuid="19c4dca1-d8dd-490a-8fb0-4d00e58ab493"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Solid"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="154" y="3" width="39" height="16" uuid="adea3a69-c4e3-4c34-9827-2faf611b7072"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="197" y="-1" width="79" height="21" uuid="946a90bd-14ff-4b84-af6d-6b41c9fc2b46"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$V{sumaMontoBs}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="276" y="-1" width="64" height="21" uuid="de551707-ded7-447b-b712-15d4a2d369af"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$V{sumaMontoUsd}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="276" y="-1" width="1" height="21" uuid="f5a6793d-8192-448a-a267-5a9fd35f46b8"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
 					</graphicElement>
 				</line>
 			</band>
