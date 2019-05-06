@@ -19,7 +19,7 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 	<field name="subarea" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="subarea"/>
 	</field>
-	<field name="cod_actividad" class="java.lang.String">
+	<field name="cod_actividad" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="cod_actividad"/>
 	</field>
 	<field name="actividad" class="java.lang.String">
@@ -31,8 +31,8 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 	<field name="responsable" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="responsable"/>
 	</field>
-	<field name="asigando" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="asigando"/>
+	<field name="inicial" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="inicial"/>
 	</field>
 	<field name="ejecutado" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="ejecutado"/>
@@ -41,7 +41,7 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 		<property name="com.jaspersoft.studio.field.label" value="saldo"/>
 	</field>
 	<variable name="subarea_asigando_total" class="java.math.BigDecimal" resetType="Group" resetGroup="subarea" calculation="Sum">
-		<variableExpression><![CDATA[$F{asigando}]]></variableExpression>
+		<variableExpression><![CDATA[$F{inicial}]]></variableExpression>
 	</variable>
 	<variable name="subarea_ejecuion_toal" class="java.math.BigDecimal" resetType="Group" resetGroup="subarea" calculation="Sum">
 		<variableExpression><![CDATA[$F{ejecutado}]]></variableExpression>
@@ -103,7 +103,7 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 		<groupFooter>
 			<band height="34">
 				<staticText>
-					<reportElement x="30" y="0" width="100" height="15" uuid="007f4750-6da3-4a71-beac-d11f6948c80d"/>
+					<reportElement x="30" y="3" width="500" height="15" uuid="007f4750-6da3-4a71-beac-d11f6948c80d"/>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
@@ -343,7 +343,7 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db67c637-b151-43ec-a5dc-c7cd1a19f100"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{asigando}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{inicial}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="613" y="3" width="60" height="33" uuid="c8b940b4-4c94-4b77-a610-9030c020f709">
