@@ -38,9 +38,11 @@ import net.sf.jasperreports.export.SimplePdfReportConfiguration;
 @RequestMapping("/rest/reports")
 public class ReportsResource {
   // String url = "jdbc:postgresql://vps229753.vps.ovh.ca:5432/db_presupuesto";
-  String url = "jdbc:postgresql://localhost:5432/db_presupuesto";
   // String contrasena = "123456Zxcv";
-  String contrasena = "Sistemas1";
+
+  String url = "jdbc:postgresql://localhost:5432/db_presupuesto";
+  String contrasena = "postgres";
+  // String contrasena = "Sistemas1";
 
   public ReportsResource() {
   }
