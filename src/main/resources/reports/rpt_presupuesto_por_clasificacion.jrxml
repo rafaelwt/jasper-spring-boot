@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_presupuesto_x_clasificacion" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8ed244d-7658-45ef-8fb3-af4df9124c0d">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -51,7 +51,7 @@
 				<textElement textAlignment="Center">
 					<font size="20"/>
 				</textElement>
-				<text><![CDATA[Ejecucion Presupuestaria por Clasificación]]></text>
+				<text><![CDATA[Ejecución Presupuestaria por Clasificación]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -79,7 +79,7 @@
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Clasificacion:]]></text>
+				<text><![CDATA[Clasificación:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="89" y="31" width="205" height="14" uuid="e246021b-da37-4281-9a72-d2d84d93e3da"/>
@@ -103,7 +103,7 @@
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Clasificacion]]></text>
+				<text><![CDATA[Clasificación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="147" y="0" width="140" height="20" uuid="37a3c5bc-219b-459e-9ebe-c4b68743bc6e">
@@ -112,7 +112,7 @@
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Area]]></text>
+				<text><![CDATA[Área]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="293" y="1" width="60" height="20" uuid="1eac5432-ce93-42c3-9a53-a0262da862a1">

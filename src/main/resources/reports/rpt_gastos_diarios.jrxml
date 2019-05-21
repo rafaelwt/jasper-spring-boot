@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_gastos_diarios" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c90b620d-371d-4174-88bc-9352aa215f2b">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
@@ -102,7 +102,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[DESCRIPCION]]></text>
+					<text><![CDATA[DESCRIPCIÓN]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="196" y="54" width="80" height="16" uuid="93b0ec6c-111d-43b0-bfcd-727ca3e98a7a"/>
@@ -188,7 +188,7 @@
 				<textElement>
 					<font size="15" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[RENDICION DE GASTOS DIARIOS]]></text>
+				<text><![CDATA[RENDICIÓN DE GASTOS DIARIOS]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="8" y="60" width="188" height="20" uuid="96085cd6-c33d-4170-b598-63b4c47e3a04"/>

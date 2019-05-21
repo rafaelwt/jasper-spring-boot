@@ -41,8 +41,8 @@ public class ReportsResource {
   // String contrasena = "123456Zxcv";
 
   String url = "jdbc:postgresql://localhost:5432/db_presupuesto";
-  String contrasena = "postgres";
-  // String contrasena = "Sistemas1";
+  // String contrasena = "postgres";
+  String contrasena = "Sistemas1";
 
   public ReportsResource() {
   }
@@ -96,8 +96,6 @@ public class ReportsResource {
     }
 
   }
-
-
   @CrossOrigin
   @GetMapping("/gastosdiariosporfactura")
   public void gastosdiariosporfactura(HttpServletResponse response, @RequestParam String fechaini, @RequestParam String fechafin,
@@ -117,6 +115,60 @@ public class ReportsResource {
       params.put("fec_ini", fechaini);
       params.put("fec_fin", fechafin);
       params.put("cod_caja", cod_caja);
+
+      JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
+
+      // JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null,
+      // conn);
+      JRPdfExporter exporter = new JRPdfExporter();
+
+      exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
+      // exporter.setExporterOutput(new
+      // SimpleOutputStreamExporterOutput("userReport.pdf")); //genera un pdf en la
+      // ruta raiz
+      exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(response.getOutputStream()));
+      SimplePdfReportConfiguration reportConfig = new SimplePdfReportConfiguration();
+      reportConfig.setSizePageToContent(true);
+      reportConfig.setForceLineBreakPolicy(false);
+
+      SimplePdfExporterConfiguration exportConfig = new SimplePdfExporterConfiguration();
+      exportConfig.setMetadataAuthor("baeldung");
+      exportConfig.setEncrypted(true);
+      exportConfig.setAllowedPermissionsHint("PRINTING");
+
+      exporter.setConfiguration(reportConfig);
+      exporter.setConfiguration(exportConfig);
+
+      exporter.exportReport();
+    } catch (Exception exc) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error al generar el reporte", null);
+    }
+
+  }
+
+
+  @CrossOrigin
+  @GetMapping("/gastosdiariosporarea")
+  public void gastosdiariosporarea(HttpServletResponse response, @RequestParam String fechaini, @RequestParam String fechafin,
+      @RequestParam Integer cod_area) throws Exception {
+    try {
+      
+      Properties props = new Properties();
+      props.setProperty("user", "postgres");
+      props.setProperty("password", contrasena);
+      Class.forName("org.postgresql.Driver");
+      Connection conn = DriverManager.getConnection(url, props);
+      response.setContentType("application/pdf");
+      InputStream inputStream = this.getClass().getResourceAsStream("/reports/rpt_gastos_diarios_por_area.jrxml");
+      InputStream subReportinputStream = this.getClass().getResourceAsStream("/reports/rpt_gastos_diarios_por_area_ingresos.jrxml");
+      JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
+      JasperReport jasperSubReport = JasperCompileManager.compileReport(subReportinputStream);
+
+      HashMap params = new HashMap();
+      params.put("fec_ini", fechaini);
+      params.put("fec_fin", fechafin);
+      params.put("cod_area", cod_area);
+      params.put("subReportIngresosCaja", jasperSubReport);
 
       JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, conn);
 

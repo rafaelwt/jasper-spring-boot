@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_gastos_diarios_por_area_ingresos" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f3be45c-dcc5-4460-99ed-0d62853e6632">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
+	<parameter name="fecha_inicio" class="java.lang.String"/>
+	<parameter name="fecha_fin" class="java.lang.String"/>
+	<parameter name="codigo_area" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[select * from rpt_gastos_diarios_por_area_ingresos('1990-01-01','2020-01-01',0);]]>
+	</queryString>
+	<field name="nom_caja" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nom_caja"/>
+	</field>
+	<field name="monto_total_ingresos" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="monto_total_ingresos"/>
+	</field>
+	<variable name="suma_total_ingresos" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{monto_total_ingresos}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="126">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement x="1" y="12" width="570" height="114" uuid="79fb9d10-6b37-4530-bc2d-8e267c00e3e6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="81" y="98" width="342" height="20" uuid="2b710592-83f5-49e0-9319-77e75dd6589f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aba0f973-51d4-4950-82ed-a3269b05c3d3"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CAJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="98" width="139" height="20" uuid="00b145ea-ba0e-452c-b1d4-58a236d45ea2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aba0f973-51d4-4950-82ed-a3269b05c3d3"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[INGRESOS TOTALES ($US)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="94" width="568" height="1" uuid="96d94c6f-ce48-491e-a9cb-60229bec850f"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="7" y="98" width="66" height="20" uuid="3bd42ca6-bed0-4048-8837-2e3d49407101">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aba0f973-51d4-4950-82ed-a3269b05c3d3"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[NRO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="70" width="195" height="14" uuid="a52dfdd4-2fab-4912-894b-d355d0cbd267"/>
+				<textFieldExpression><![CDATA[$P{fecha_fin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="50" width="195" height="14" uuid="5dde391c-e524-4df8-b76f-587678542223"/>
+				<textFieldExpression><![CDATA[$P{fecha_inicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="50" width="75" height="15" uuid="97087299-9ef4-4590-90ed-d90499da65a4"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Inicial:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="70" width="75" height="15" uuid="f5b71f2c-77a1-45cc-973d-9d86443733f5"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Final:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="22" width="201" height="20" uuid="8bfd7694-e6de-47db-93d8-19aab2cb4ba4"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[INGRESOS TOTALES POR CAJA:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="82" y="2" width="338" height="20" uuid="9c701fca-4525-483b-86b9-0acdfa050775">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="45272c64-2270-47b1-be84-475eb50c40ac"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nom_caja}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="429" y="2" width="139" height="20" uuid="ecb284b7-d071-4f22-872b-fc51c102bb11">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f04a59bd-8a02-473a-af47-2fff50edcff0"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{monto_total_ingresos}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="6" y="2" width="66" height="20" uuid="34884f0b-f0d2-4f9b-ac4c-46c1a35919fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="33" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="1" y="5" width="420" height="16" uuid="e265717d-ad43-4b55-9155-e8a76e8fdc05"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Suma Total Ingresos "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="429" y="5" width="138" height="15" uuid="dc7e47c8-191f-4f90-8280-ec3c8ecce79d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{suma_total_ingresos}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="1" width="568" height="1" uuid="8d2676ef-9a6d-4f70-8c99-dc6e8eac2dcc"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

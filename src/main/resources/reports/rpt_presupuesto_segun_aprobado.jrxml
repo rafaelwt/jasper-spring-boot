@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_presupuesto_segun_asignado" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f113d738-902a-48e8-97d8-00a8e3c56e48">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
@@ -74,7 +74,7 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Subarea:]]></text>
+					<text><![CDATA[Subárea:]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="79" y="28" width="190" height="16" uuid="659d9fb0-188c-4c8c-b067-dd7ca3b15327"/>
@@ -85,7 +85,7 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
-					<text><![CDATA[Area:]]></text>
+					<text><![CDATA[Área:]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="79" y="7" width="100" height="16" uuid="22532080-4e1c-4d81-9ce2-2d7d6daf9602"/>
@@ -237,7 +237,7 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 				<textElement textAlignment="Center">
 					<font size="20"/>
 				</textElement>
-				<text><![CDATA[Ejecucion Presupuestaria Según lo Aprobado]]></text>
+				<text><![CDATA[Ejecución Presupuestaria Según lo Aprobado]]></text>
 			</staticText>
 			<rectangle>
 				<reportElement x="2" y="38" width="751" height="100" uuid="ae8c3f12-c59a-4dcb-bc99-d7a7b976bd17"/>
@@ -261,14 +261,14 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Area:]]></text>
+				<text><![CDATA[Área:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="13" y="114" width="60" height="15" uuid="204dc425-2e6b-4bcc-ae4a-3d6610f05651"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Subarea:]]></text>
+				<text><![CDATA[Subárea:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="80" y="114" width="120" height="14" uuid="30e6dbfe-9055-456c-8401-ad03e6207ba4"/>
