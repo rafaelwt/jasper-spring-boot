@@ -8,7 +8,7 @@
 	<parameter name="cod_subarea" class="java.lang.Integer"/>
 	<queryString language="SQL">
 		<![CDATA[select * from 
-rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
+rpt_presupuesto_segun_aprobado_gerencial ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 	</queryString>
 	<field name="mes" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="mes"/>
@@ -40,11 +40,20 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 	<field name="ejecutado" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="ejecutado"/>
 	</field>
-	<field name="fecha" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+	<field name="saldo" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="saldo"/>
 	</field>
+	<variable name="subarea_asigando_total" class="java.math.BigDecimal" resetType="Group" resetGroup="subarea" calculation="Sum">
+		<variableExpression><![CDATA[$F{inicial}]]></variableExpression>
+	</variable>
 	<variable name="subarea_ejecuion_toal" class="java.math.BigDecimal" resetType="Group" resetGroup="subarea" calculation="Sum">
 		<variableExpression><![CDATA[$F{ejecutado}]]></variableExpression>
+	</variable>
+	<variable name="subarea_saldo_total" class="java.math.BigDecimal" resetType="Group" resetGroup="subarea" calculation="Sum">
+		<variableExpression><![CDATA[$F{saldo}]]></variableExpression>
+	</variable>
+	<variable name="subarea_aprobado_total" class="java.math.BigDecimal" resetType="Group" resetGroup="subarea" calculation="Sum">
+		<variableExpression><![CDATA[$F{aprobado}]]></variableExpression>
 	</variable>
 	<group name="area">
 		<groupExpression><![CDATA[$F{area}]]></groupExpression>
@@ -150,7 +159,7 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true" isItalic="false"/>
 					</textElement>
-					<text><![CDATA[Fecha]]></text>
+					<text><![CDATA[Saldo]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="528" y="73" width="91" height="20" uuid="415572ca-49bf-4683-b884-272c644d21a3">
@@ -172,18 +181,39 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 		<groupFooter>
 			<band height="65">
 				<textField isStretchWithOverflow="true">
+					<reportElement x="464" y="4" width="60" height="15" uuid="8bb16c46-4cd3-4097-a87d-f8a1750bc729"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{subarea_asigando_total}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
 					<reportElement x="622" y="4" width="60" height="15" uuid="aff8bdbb-cfb4-4e29-b1c1-a1c25ed16988"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{subarea_ejecuion_toal}]]></textFieldExpression>
 				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="688" y="4" width="60" height="15" uuid="40bf2aaa-96f8-4f0f-a1be-ce76b8103b40"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{subarea_saldo_total}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="528" y="4" width="90" height="15" uuid="885cf1ed-703e-41e6-983d-36f6c15cca11"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{subarea_aprobado_total}]]></textFieldExpression>
+				</textField>
 				<textField>
-					<reportElement x="13" y="3" width="606" height="16" uuid="e4754cab-d4dc-40f0-8808-4ad7f3661006"/>
+					<reportElement x="13" y="3" width="443" height="16" uuid="e4754cab-d4dc-40f0-8808-4ad7f3661006"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Total Ejecución Subárea "+$F{subarea}.toUpperCase()+":"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["Totales Subárea "+$F{subarea}.toUpperCase()+":"]]></textFieldExpression>
 				</textField>
 				<line>
 					<reportElement x="1" y="0" width="750" height="1" uuid="c91c1b06-ca2f-44fe-b15b-6f2ada8c9cf7"/>
@@ -207,7 +237,7 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 				<textElement textAlignment="Center">
 					<font size="20"/>
 				</textElement>
-				<text><![CDATA[Ejecución Presupuestaria Según lo Aprobado]]></text>
+				<text><![CDATA[Ejecución Presupuestaria Según lo Aprobado Gerencial]]></text>
 			</staticText>
 			<rectangle>
 				<reportElement x="2" y="38" width="751" height="100" uuid="ae8c3f12-c59a-4dcb-bc99-d7a7b976bd17"/>
@@ -306,7 +336,7 @@ rpt_presupuesto_segun_aprobado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db67c637-b151-43ec-a5dc-c7cd1a19f100"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{saldo}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="529" y="3" width="90" height="20" uuid="714197ee-23fa-4958-a6da-12cee3711490">

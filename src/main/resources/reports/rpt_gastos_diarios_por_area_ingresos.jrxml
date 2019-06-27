@@ -3,11 +3,13 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_gastos_diarios_por_area_ingresos" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f3be45c-dcc5-4460-99ed-0d62853e6632">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="551"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="435"/>
 	<parameter name="fecha_inicio" class="java.lang.String"/>
 	<parameter name="fecha_fin" class="java.lang.String"/>
 	<parameter name="codigo_area" class="java.lang.Integer"/>
 	<queryString language="SQL">
-		<![CDATA[select * from rpt_gastos_diarios_por_area_ingresos('1990-01-01','2020-01-01',0);]]>
+		<![CDATA[select * from rpt_gastos_diarios_por_area_ingresos($P{fecha_inicio} ,$P{fecha_fin},$P{codigo_area});]]>
 	</queryString>
 	<field name="nom_caja" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nom_caja"/>
